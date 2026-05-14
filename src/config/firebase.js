@@ -11,6 +11,13 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+const hasFirebaseConfig = Object.values(firebaseConfig).every(Boolean);
+
+const app = hasFirebaseConfig ? initializeApp(firebaseConfig) : null;
+
+if (!hasFirebaseConfig) {
+  console.warn('Firebase config is missing. Set VITE_FIREBASE_* variables in .env to enable realtime features.');
+}
+
+export const auth = app ? getAuth(app) : null;
+export const db = app ? getFirestore(app) : null;
