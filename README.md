@@ -2,6 +2,26 @@
 
 Modern responsive tournament platform (React + Tailwind + Firebase) with dark neon sports UI.
 
+## Quick Start (Working Setup)
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Create env file:
+   ```bash
+   cp .env.example .env
+   ```
+3. Run development server:
+   ```bash
+   npm run dev
+   ```
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+> If you see a blank page, open browser DevTools console first. The most common reason is missing install (`vite: not found`) or wrong env setup.
+
 ## Features Included
 - Team registration with approval workflow
 - League + knockout fixtures
